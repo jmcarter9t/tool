@@ -128,7 +128,7 @@ Tool& Tool::addOption(char short_name, const std::string& long_name, const std::
     //   option argument.
 
     option_string_ += short_name;
-    if (hasArg > no_argument) {
+    if (hasArg > no_argument) {   // no_argument is from getopt.h; see below.
         option_string_ += ':';
     }
 
@@ -159,7 +159,7 @@ Tool& Tool::set( char short_name, const char* argument ) {
 
         if (argument && search->second.argReqd()) {
             // user also provided an argument and it is expected.
-            search->second.set(optarg);
+            search->second.set(argument);
         }
     } 
 
