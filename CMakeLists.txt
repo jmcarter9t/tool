@@ -11,7 +11,7 @@ set(CMAKE_C_FLAGS "-O3")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 # follow the top level empty source pattern and add with the subdirectory include files.
-add_library(tool "")
+add_library(tool STATIC "")
 add_executable (tooltest "")
 
 include("src/CMakelists.txt")
