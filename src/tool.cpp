@@ -108,7 +108,6 @@ int Tool::run()
 {
     // this is the operator() method that must be defined by a child class of this abstract class.
     return operator()();
-    //return (*this)();
 }
 
 /**
