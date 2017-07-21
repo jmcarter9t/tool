@@ -8,9 +8,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS "-O3")
 set(CMAKE_C_FLAGS "-O3")
 
-include_directories("./include")
-set(TOOL_SRC "src/tool.cpp"
-             "src/test.cpp"
-   )
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-add_executable (tool ${TOOL_SRC})
+# follow the top level empty source pattern and add with the subdirectory include files.
+add_library(tool "")
+add_executable (tooltest "")
+
+include("src/CMakelists.txt")
+
+# build the tooltest using the test runner and library we just built.
+target_link_libraries(tooltest LINK_PUBLIC tool)
